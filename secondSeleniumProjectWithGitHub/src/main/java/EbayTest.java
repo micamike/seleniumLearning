@@ -12,29 +12,27 @@ public class EbayTest {
             driver = new ChromeDriver();
             driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
-            driver.get("https://www.ebay.com/");
-
-            driver.findElementByLinkText("register").click();
-
-            //Fill firstname field while registration
+            OpenEbay();
+            NewUser();
             fillFirstNameForm();
-
-
-            //Fill lastname field while registration
             fillLastNameForm();
-
             fillEmail();
-
             fillPassword();
-
-            //Click on button
             clickOnButtonSubReg();
 
-            // driver.quit();
+            driver.quit();
 
 
 
         }
+
+    public void OpenEbay() {
+        driver.get("https://www.ebay.com/");
+    }
+
+    public void NewUser() {
+        driver.findElementByLinkText("register").click();
+    }
 
     public void clickOnButtonSubReg() {
         driver.findElementById("ppaFormSbtBtn").click();
